@@ -8,4 +8,5 @@ I love SQL. I wanna do more things with it. Hence the repo.
    -> While the logic of a Random Walker is pretty straight forward, one thing that I havent implemented but really want is the ability for the walker       to change its course if the current move will lead it back to place that it has been.
 3. Number to Binary
    -> Been reading up on bitwise operations in SQL, then came across this procedure someone wrote to convert number to binary. Me being me, of course        I need to implement the same logic into one single pure SQL query. 
-   
+4. Reverse Number
+   -> Once I was brave enough to tackle Haskell, only to be completely overwhelemed by this number-reversing problem. Consider this a reclaim of my          manhood. 
