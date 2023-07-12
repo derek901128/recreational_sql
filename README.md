@@ -9,4 +9,9 @@ I love SQL. For the longest time I almost only write it at work, but playing wit
 3. Number to Binary
    -> Been reading up on bitwise operations in SQL, then came across this procedure someone wrote to convert number to binary. Me being me, of course        I need to implement the same logic into one single pure SQL query. 
 4. Reverse Number
-   -> Once I was brave enough to tackle Haskell, only to be completely overwhelemed by this number-reversing problem. Consider this a reclaim of my          manhood. 
+   -> Once I was brave enough to tackle Haskell, only to be completely overwhelemed by this number-reversing problem. Consider this a reclaim of my          manhood.
+5. Reverse Number - LeetCode
+   ->  I was never into LeetCode, but when I stumbled upone this question, immediately I saw two things: recursiver queries and bit conversion. I             first implement each one seperatly, then here I put them together in one cohesive query that first reverse then input number, convert it into          binary and count the number of bits, finally using a case when to decide whether the reversed number is overflowing or not. Frankly I'm quite          happy with what I got here. 
+6. Random String generation
+   -> Nothing spectacular here, just generating random ascii values from 97 to 122, and convert them back into letters. 
+   
