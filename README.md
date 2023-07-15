@@ -11,7 +11,9 @@ I love SQL. For the longest time I almost only write it at work, but playing wit
 4. Reverse Number
    -> Once I was brave enough to tackle Haskell, only to be completely overwhelemed by this number-reversing problem. Consider this a reclaim of my          manhood.
 5. Reverse Number - LeetCode
-   ->  I was never into LeetCode, but when I stumbled upone this question, immediately I saw two things: recursiver queries and bit conversion. I             first implement each one seperatly, then here I put them together in one cohesive query that first reverse then input number, convert it into          binary and count the number of bits, finally using a case when to decide whether the reversed number is overflowing or not. Frankly I'm quite          happy with what I got here. 
+   ->  I was never into LeetCode, but when I stumbled upone this question, immediately I saw two things: recursiver queries and bit conversion. I             first implement each one seperatly, then here I put them together in one cohesive query that first reverse then input number, convert it into          binary and count the number of bits, finally using a case when to decide whether the reversed number is overflowing or not. Frankly I'm 
+         quite happy with what I got here. 
 6. Random String generation
    -> Nothing spectacular here, just generating random ascii values from 97 to 122, and convert them back into letters. 
-   
+7. Handrolled Aggregates
+   -> Since these days I'm hanging around in the Recursion Land quite a bit, I think to myself: why don't I just just make my life harder by       handrolling my own aggregate functions that don't work with group by clause ? Sounds like real computer science to me ! 
