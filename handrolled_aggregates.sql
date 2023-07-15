@@ -1,6 +1,6 @@
 with 
 base(row_no, n) as (
-	select 
+    select 
         rownum, 
         level 
     from 
@@ -18,7 +18,7 @@ find_max(
     count_so_far,
     avg_so_far
 ) as (
-  	select 
+  select 
     	1,
     	n,
     	null,
@@ -33,13 +33,13 @@ find_max(
     	row_no = 1
     union all
     select
-		fm.lvl + 1,
+	fm.lvl + 1,
     	b.n,
     	fm.cur_val, 
     	case when b.n > fm.max_so_far then b.n else fm.max_so_far end,
     	case when b.n < fm.min_so_far then b.n else fm.min_so_far end,
     	b.n + fm.sum_so_far,
-  		fm.count_so_far + 1,
+  	fm.count_so_far + 1,
     	(b.n + fm.sum_so_far) / (fm.count_so_far + 1)
     from 
     	find_max fm
