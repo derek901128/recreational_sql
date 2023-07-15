@@ -58,6 +58,6 @@ order_by_asc (new_order, row_no, num) as (
     and
     	a.new_order  < ( select count(*) from base )
 )
---select distinct * from order_by_asc
+select distinct * from order_by_asc
 --select distinct * from order_by_desc
 ;
