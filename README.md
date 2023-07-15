@@ -16,4 +16,4 @@ I love SQL. For the longest time I almost only write it at work, but playing wit
 6. Random String generation
    -> Nothing spectacular here, just generating random ascii values from 97 to 122, and convert them back into letters. 
 7. Handrolled Aggregates
-   -> Since these days I'm hanging around in the Recursion Land quite a bit, I think to myself: why don't I just just make my life harder by       handrolling my own aggregate functions that don't work with group by clause ? Sounds like real computer science to me ! 
+   -> Since these days I'm hanging around in the Recursion Land quite a bit, I think to myself: why don't I just make my life harder by       handrolling my own aggregate functions that don't work with group by clause ? Sounds like real computer science to me ! 
