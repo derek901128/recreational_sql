@@ -1,4 +1,4 @@
-I love SQL. For the longest time I almost only write it at work, but playing with Advent of Code made me wanna do even more things with it. Hence I created this repo, a collection of SQL pieces with which I attempt to explore SQL, to explore myself, and, above all, to have fun.
+I love SQL. For the longest time I almost only write it at work, but playing with Advent of Code made me wanna do even more things with it. Hence I created this repo, a collection of SQL pieces with which I attempt to explore SQL (mostly the Oracle flavor), to explore myself, and, above all, to have fun.
 
 1. Tic Tac Toe
    -> All the moves are randomized each time the query is run, hence the result will be different each time.
