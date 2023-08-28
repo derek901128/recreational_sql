@@ -1,5 +1,6 @@
 with 
-base(row_no, n) as (
+base(row_no, n) as 
+(
     select 
         rownum, 
         level 
@@ -8,7 +9,8 @@ base(row_no, n) as (
     connect by 
         level <= 10
 ),
-find_max(
+find_max
+(
     lvl, 
     cur_val, 
     prev_val, 
@@ -17,7 +19,8 @@ find_max(
     sum_so_far,
     count_so_far,
     avg_so_far
-) as (
+) as 
+(
   select 
     	1,
     	n,
@@ -43,12 +46,10 @@ find_max(
     	(b.n + fm.sum_so_far) / (fm.count_so_far + 1)
     from 
     	find_max fm
-	join	
-    	base b
-	on
-    	fm.lvl + 1 = b.row_no
-    where
-    	fm.lvl + 1 <= ( select max(row_no) from base )
+		joiN base b
+			on fm.lvl + 1 = b.row_no
+    where 
+		fm.lvl + 1 <= ( select max(row_no) from base )
 )
 select 
     max_so_far as max_final,
