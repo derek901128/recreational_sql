@@ -1,13 +1,16 @@
 with
-base (s) as (
+base (s) as 
+(
     select 'derek' from dual
 ),
-uppercase (
+uppercase 
+(
     n,
     s,
     c,
     uc
-) as (
+) as 
+(
     select 
     	1, 
     	s, 
@@ -31,6 +34,7 @@ uppercase (
     	end
 	from 
     	uppercase
-    where n < length(s)
+    where 
+		n < length(s)
 )
 select listagg(uc) within group(order by n) as us from uppercase;
