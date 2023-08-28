@@ -1,5 +1,6 @@
 with 
-dimensions(dim) as ( 
+dimensions(dim) as 
+( 
     select 
         level 
     from 
@@ -7,16 +8,17 @@ dimensions(dim) as (
     connect by 
         level <= 3
 ),
-grid as (
+grid as 
+(
     select 
         y.dim as y, 
         x.dim as x
     from 
         dimensions x 
-    cross join 
-        dimensions y 
+        cross join dimensions y 
 ),
-multi_grids(grid_no, y, x) as (
+multi_grids(grid_no, y, x) as 
+(
     select 
         1, 
         y, 
@@ -33,7 +35,8 @@ multi_grids(grid_no, y, x) as (
     where 
         grid_no < 9
 ),
-moves as (
+moves as 
+(
     select
         row_number() over (order by dbms_random.value()) as round_no,
         y, 
@@ -41,7 +44,8 @@ moves as (
     from
         grid
 ),
-rounds as (
+rounds as 
+(
     select 
         round_no,
         y,
@@ -54,7 +58,8 @@ rounds as (
     from
         moves
 ),
-game_play(game_no, y, x, player) as (
+game_play(game_no, y, x, player) as 
+(
     select 
         1,
         a.y,
@@ -62,14 +67,10 @@ game_play(game_no, y, x, player) as (
         b.player
     from 
         multi_grids a
-    left join
-        rounds b
-    on 
-        a.grid_no = b.round_no
-    and 
-        a.x = b.x
-    and 
-        a.y = b.y
+        left join rounds b
+            on a.grid_no = b.round_no
+            and a.x = b.x
+            and a.y = b.y
     where 
         a.grid_no = 1
     union all
@@ -80,31 +81,31 @@ game_play(game_no, y, x, player) as (
         nvl(a.player, b.player)
     from
         game_play a
-    left join
-        rounds b
-    on
-        a.game_no + 1 = b.round_no
-    and 
-        a.x = b.x 
-    and 
-        a.y = b.y 
+        left join rounds b
+            on a.game_no + 1 = b.round_no
+            and a.x = b.x 
+            and a.y = b.y 
     where
         a.game_no < 9
 ),
-calculate as (
+calculate as 
+(
     select 
         * 
     from 
         game_play
     model 
-    partition by (
+    partition by 
+    (
         game_no
     ) 
-    dimension by (
+    dimension by 
+    (
         y, 
         x
     )
-    measures (
+    measures 
+    (
         player,
         case player when 'X' then 1 else 0 end as player_X,
         case player when 'O' then 1 else 0 end as player_O,
@@ -125,7 +126,8 @@ calculate as (
         0 as sum_O_7,
         0 as sum_O_8
     )
-    rules (
+    rules 
+    (
         sum_X_1[1, any] = sum(case player when 'X' then 1 else 0 end)[cv(), x between cv() - 2 and cv() + 2],
         sum_X_2[2, any] = sum(case player when 'X' then 1 else 0 end)[cv(), x between cv() - 2 and cv() + 2],
         sum_X_3[3, any] = sum(case player when 'X' then 1 else 0 end)[cv(), x between cv() - 2 and cv() + 2],
@@ -144,7 +146,8 @@ calculate as (
         sum_O_8[2, 2] = player_O[cv()-1, cv()+1] + player_O[cv()+1, cv()-1] + player_O[cv(), cv()]
     )
 ),
-game_result as (
+game_result as 
+(
     select 
         game_no, 
         y, 
@@ -155,7 +158,8 @@ game_result as (
     from 
         calculate
 ),
-board as (
+board as 
+(
     select 
         game_no,
         y,
