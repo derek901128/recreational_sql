@@ -1,13 +1,16 @@
 with 
-base(s) as (
+base(s) as 
+(
     select 'DeReK' from dual
 ),
-swap_case(
+swap_case
+(
     n,
     s,
     c,
     sc
-) as (
+) as 
+(
     select 
     	1, 
     	s, 
