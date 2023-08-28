@@ -1,6 +1,7 @@
 with 
 para (v) as ( select 123 from dual ),
-reverse_num(
+reverse_num
+(
     row_num,
     cur_num,
     next_num,
@@ -8,7 +9,8 @@ reverse_num(
     pos,
     cur_div,
     next_div
-) as (
+) as 
+(
     select
         1,
         ( select abs(v) from para ),
@@ -33,24 +35,26 @@ reverse_num(
     where
         floor(next_num / cur_div) > 0
 ),
-reversed(i_reversed) as (
+reversed(i_reversed) as 
+(
     select 
         sum(a.remaining * b.pos)
     from 
         reverse_num a
-    join
-        ( select row_number()over(order by row_num desc) as row_num, pos from reverse_num ) b 
-    on 
-        a.row_num = b.row_num
+        join
+            ( select row_number()over(order by row_num desc) as row_num, pos from reverse_num ) b 
+            on a.row_num = b.row_num
 ),
-num_to_binary(
+num_to_binary
+(
     i_reversed,
     cur_num,
     next_num,
     i_bit,
     i_binary,
     bin_cnt
-) as (
+) as 
+(
     select 
         i_reversed,
         i_reversed,
@@ -73,7 +77,8 @@ num_to_binary(
     where
         next_num >  0
 ),
-solution as (
+solution as 
+(
     select 
         case 
             when bin_cnt > 32 
