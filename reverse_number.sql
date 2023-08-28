@@ -1,10 +1,12 @@
-with recursive reverse_number(
+with recursive reverse_number
+(
 	num, 
 	next_num,
 	reversed,
 	cur_div,
 	next_div
-) as (
+) as 
+(
 	select 
 		( select v from param ),
 		( select v from param ) - mod(( select v from param ), 10),
