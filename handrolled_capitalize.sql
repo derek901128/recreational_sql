@@ -1,13 +1,16 @@
 with
-base (s) as (
+base (s) as 
+(
     select 'derek lei chan kit' from dual
 ),
-breakup (
+breakup 
+(
     n,
     s,
     c,	
     ac
-) as (
+) as 
+(
     select 
     	1, 
     	s, 
@@ -26,7 +29,8 @@ breakup (
     where 
     	n < length(s)
 ),
-islands as (
+islands as 
+(
     select 
     	n,
 		n - rank() over(partition by case ac when 32 then 'space' else 'not_space' end order by n) as subgroups,
@@ -36,7 +40,8 @@ islands as (
     from
     	breakup
 ),
-first_letters as (
+first_letters as 
+(
     select
      	n, 
     	case ac 
@@ -51,7 +56,8 @@ first_letters as (
     	islands
 )
 select 
-    listagg(
+    listagg
+	(
     	case
      	 	when first_letters = 1 and ac between 97 and 122
     		then chr(ac - 32)
