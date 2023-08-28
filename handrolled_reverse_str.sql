@@ -1,12 +1,15 @@
 with
-base (s) as (
+base (s) as 
+(
     select 'derek' from dual
 ),
-breakup (
+breakup 
+(
     n,
     s,
     c
-) as (
+) as 
+(
     select 1, s, substr(s, 1, 1) from base
     union all
     select 
@@ -18,7 +21,8 @@ breakup (
     where 
         n < length(s)
 ),
-reversed_str(rs) as (
+reversed_str(rs) as 
+(
     select 
         listagg(c) within group (order by n desc) 
     from 
