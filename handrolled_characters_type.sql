@@ -1,8 +1,10 @@
 with 
-base(s) as (
+base(s) as 
+(
     select 'derek' from dual
 ),
-char_nature(
+char_nature
+(
     n,
     s,
     c,
