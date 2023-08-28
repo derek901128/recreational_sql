@@ -1,11 +1,14 @@
 with 
-base(
+base
+(
     str,
     endstr
-) as (
+) as 
+(
     select 'derek', 'rek' from dual     
 ),
-ends_with as (
+ends_with as 
+(
     select 
     	case 
     		when substr(str, length(endstr) * -1, length(endstr)) = endstr
